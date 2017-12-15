@@ -15,14 +15,15 @@
   "license": "MIT",
   "_moduleAliases": {
     "@root": ".",
-    "@BudgetManager": "./services/BudgetManagerAPI",
-    "@BudgetManagerModels":"./services/BudgetManagerAPI/app/models",
-    "@BudgetManagerAPI":"./services/BudgetManagerAPI/config/app.js",
-    "@config": "./services/BudgetManagerAPI/config/index.js"
+    "@ToDoList": "./services/ToDoListAPI",
+    "@ToDoListModels": "./services/ToDoListAPI/app/models",
+    "@ToDoListAPI": "./services/ToDoListAPI/config/app.js",
+    "@config": "./services/ToDoListAPI/config/index.js"
   },
   "dependencies": {
     "bcrypt": "^1.0.3",
     "body-parser": "^1.18.2",
+    "color-log": "0.0.2",
     "consign": "^0.1.6",
     "cors": "^2.8.4",
     "express": "^4.16.2",

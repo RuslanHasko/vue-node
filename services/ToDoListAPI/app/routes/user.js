@@ -1,9 +1,9 @@
 const passport = require('passport'),
       config = require('@config'),
-      models = require('@BudgetManager/app/setup');
+      models = require('@ToDoList/app/setup');
 
 module.exports = (app) => {
-  const api = app.BudgetManagerAPI.app.api.user;
+  const api = app.ToDoListAPI.app.api.user;
 
   app.route('/api/v1/setup')
     .post(api.setup(models.User))

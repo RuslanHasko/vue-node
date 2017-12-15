@@ -18,8 +18,8 @@ api.setup = (User) => (req, res) => {
   })
 }
 
-api.index = (User, BudgetToken) => (req, res) => {
-  const token = BudgetToken;
+api.index = (User, ToDoListToken) => (req, res) => {
+  const token = ToDoListToken;
   if (token) {
     User.find({}, (error, users) => {
       if (error) {

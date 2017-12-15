@@ -18,12 +18,12 @@ app.use(morgan('dev'));
 app.use(cors());
 app.use(passport.initialize());
 
-app.set('budgetsecret', config.secret);
+app.set('todolistsecret', config.secret);
 
 consign({ cwd: 'services' })
-  .include('BudgetManagerAPI/app/setup')
-  .then('BudgetManagerAPI/app/api')
-  .then('BudgetManagerAPI/app/routes')
+  .include('ToDoListAPI/app/setup')
+  .then('ToDoListAPI/app/api')
+  .then('ToDoListAPI/app/routes')
   .into(app);
 
 module.exports = app;
