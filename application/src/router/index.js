@@ -1,15 +1,19 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+
+import authRoutes from '@/router/routes/authentication'
+import mainRoutes from '@/router/routes/main'
 
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
+    authRoutes,
+    mainRoutes,
     {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      path: '*',
+      redirect: '/sign_in'
     }
   ]
 })
