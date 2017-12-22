@@ -1,6 +1,6 @@
 <template>
-  <section class="restore-access-module">
-
+  <section class="restore-access-container">
+    Restore Access
   </section>
 </template>
 
@@ -10,3 +10,6 @@
   }
 </script>
 
+<style lang="sass" scoped>
+
+</style>

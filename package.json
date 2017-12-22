@@ -4,6 +4,7 @@
   "description": "VueJS and NodeJS learn app",
   "main": "index.js",
   "scripts": {
+    "start": "node services",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

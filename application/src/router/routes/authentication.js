@@ -1,7 +1,7 @@
-import Authentication from '@/components/Authentication/Authentication'
-import SignIn from '@/components/Authentication/SignIn'
-import SignUp from '@/components/Authentication/SignUp'
-import RestoreAccess from '@/components/Authentication/RestoreAccess'
+import Authentication from 'components/Authentication/Authentication'
+import SignIn from 'components/Authentication/SignIn'
+import SignUp from 'components/Authentication/SignUp'
+import RestoreAccess from 'components/Authentication/RestoreAccess'
 
 export default {
   path: '/',

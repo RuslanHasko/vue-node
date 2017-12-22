@@ -1,6 +1,6 @@
-# todolist
+# template
 
-> A VueJs and NodeJs ToDo List app
+> Template for Vue.js project
 
 ## Build Setup
 
