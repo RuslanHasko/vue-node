@@ -39,6 +39,7 @@
           </v-card-text>
           <v-card-actions class="py-3">
             <v-btn
+              @click.native="handleSubmit"
               :class="{ 'd-none hide-btn': !validLoginForm}"
               transition="slide-y-transition"
               class="elevation-10"
@@ -58,6 +59,8 @@
 </template>
 
 <script>
+  import { mapActions } from 'vuex'
+
   export default {
     name: 'sign-in',
     data () {
@@ -80,6 +83,17 @@
             return passPattern.test(value) || 'Password must contains minimum 8 characters, at least 1 letter, 1 number and 1 special character'
           }
         }
+      }
+    },
+    methods: {
+      ...mapActions(['SignIn']),
+      handleSubmit () {
+        let payload = {
+          email: this.email,
+          password: this.password
+        }
+        this.SignIn(payload)
+          .then(data => console.log(data))
       }
     }
   }

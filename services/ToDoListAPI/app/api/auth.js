@@ -5,7 +5,7 @@ const mongoose = require('mongoose'),
 const api = {};
 
 api.login = (User) => (req, res) => {
-  User.findOne({ username: req.body.username }, (error, user) => {
+  User.findOne({ email: req.body.email }, (error, user) => {
     if (error) {
       throw error;
     }

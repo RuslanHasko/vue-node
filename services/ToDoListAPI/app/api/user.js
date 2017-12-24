@@ -4,6 +4,7 @@ const api = {};
 api.setup = (User) => (req, res) => {
   const admin = new User({
     username: 'admin',
+    email: 'admin@admin.admin',
     password: 'admin'
   });
 
@@ -36,14 +37,15 @@ api.index = (User, ToDoListToken) => (req, res) => {
 }
 
 api.signup = (User) => (req, res) => {
-  if (!req.body.username || !req.body.password) {
+  if (!req.body.username || !req.body.email || !req.body.password) {
     res.json({
       success: false,
-      message: 'Please, pass a username and password.'
+      message: 'Please, pass a username. e-mail and password.'
     });
   } else {
     const newUser = new User({
       username: req.body.username,
+      email: req.body.email,
       password: req.body.password
     });
     newUser.save((error) => {

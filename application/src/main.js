@@ -36,6 +36,7 @@ for (const filter in filters) {
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: { App }
 })

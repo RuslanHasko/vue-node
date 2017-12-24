@@ -1,7 +1,7 @@
 <template>
   <section class="sign-up-container">
     <v-layout row justify-space-around align-center>
-      <v-flex xs4>
+      <v-flex xs12 sm6 md4>
         <v-card class="v-center elevation-10">
           <v-card-title primary-title>
             <div>
@@ -48,9 +48,9 @@
                 hint="At least 8 characters"
                 v-model="matchpass"
                 min="8"
-                :append-icon="e1 ? 'visibility' : 'visibility_off'"
-                :append-icon-cb="() => (e1 = !e1)"
-                :type="e1 ? 'password' : 'text'"
+                :append-icon="e2 ? 'visibility' : 'visibility_off'"
+                :append-icon-cb="() => (e2 = !e2)"
+                :type="e2 ? 'password' : 'text'"
                 :rules="[rules.required, rules.matchpass]"
                 counter
                 required>
@@ -59,6 +59,7 @@
           </v-card-text>
           <v-card-actions class="py-3">
             <v-btn
+              @click.native="handleSubmit"
               :class="{ 'd-none hide-btn': !validLoginForm}"
               transition="slide-y-transition"
               class="elevation-10"
@@ -78,13 +79,15 @@
 </template>
 
 <script>
+  import { mapActions } from 'vuex'
+
   export default {
     name: 'sign-up',
     data () {
       return {
         validLoginForm: true,
         e1: true,
-        e2: false,
+        e2: true,
         name: '',
         password: '',
         matchpass: '',
@@ -109,6 +112,18 @@
             return value === this.password || 'Passwords doesn`t match'
           }
         }
+      }
+    },
+    methods: {
+      ...mapActions(['SignUp']),
+      handleSubmit () {
+        let payload = {
+          username: this.name,
+          email: this.email,
+          password: this.password
+        }
+        this.SignUp(payload)
+          .then(data => console.log(data))
       }
     }
   }
