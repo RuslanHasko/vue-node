@@ -4,12 +4,12 @@ const mongoose = require('mongoose'),
 
 const api = {};
 
+// SignIn
 api.login = (User) => (req, res) => {
-  User.findOne({ email: req.body.email }, (error, user) => {
+  User.findOne({ email: req.body.email.toLowerCase() }, (error, user) => {
     if (error) {
       throw error;
     }
-
     if (!user) {
       res.status(401).send({
         success: false,

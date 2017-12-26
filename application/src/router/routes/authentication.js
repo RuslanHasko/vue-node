@@ -6,6 +6,7 @@ import RestoreAccess from 'components/Authentication/RestoreAccess'
 export default {
   path: '/',
   component: Authentication,
+  redirect: '/sign_in',
   children: [
     {
       path: 'sign_in',

@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const api = {};
 
+// Setup Admin Account
 api.setup = (User) => (req, res) => {
   const admin = new User({
     username: 'admin',
@@ -19,6 +20,7 @@ api.setup = (User) => (req, res) => {
   })
 }
 
+// Return list of all users in system
 api.index = (User, ToDoListToken) => (req, res) => {
   const token = ToDoListToken;
   if (token) {
@@ -36,6 +38,7 @@ api.index = (User, ToDoListToken) => (req, res) => {
   }
 }
 
+// SignUp
 api.signup = (User) => (req, res) => {
   if (!req.body.username || !req.body.email || !req.body.password) {
     res.json({
@@ -45,7 +48,7 @@ api.signup = (User) => (req, res) => {
   } else {
     const newUser = new User({
       username: req.body.username,
-      email: req.body.email,
+      email: req.body.email.toLowerCase(),
       password: req.body.password
     });
     newUser.save((error) => {

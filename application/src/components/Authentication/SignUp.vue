@@ -3,18 +3,20 @@
     <v-layout row justify-space-around align-center>
       <v-flex xs12 sm6 md4>
         <v-card class="v-center elevation-10">
-          <v-card-title primary-title>
-            <div>
-              <h3 class="headline mb-0">Sign Up</h3>
-              <p class="mb-0 pt-2">Already have an account? Please
-                <router-link
-                  class="link indigo--text darken-4 body-2"
-                  to="sign_in">Sign In</router-link>
-              </p>
-            </div>
-          </v-card-title>
-          <v-card-text class="pt-0">
-            <v-form v-model="validLoginForm">
+          <v-form
+            v-model="validLoginForm"
+            @submit.prevent="handleSubmit">
+            <v-card-title primary-title>
+              <div>
+                <h3 class="headline mb-0">Sign Up</h3>
+                <p class="mb-0 pt-2">Already have an account? Please
+                  <router-link
+                    class="link indigo--text darken-4 body-2"
+                    to="sign_in">Sign In</router-link>
+                </p>
+              </div>
+            </v-card-title>
+            <v-card-text class="pt-0">
               <v-text-field
                 label="Name"
                 v-model="name"
@@ -55,23 +57,24 @@
                 counter
                 required>
               </v-text-field>
-            </v-form>
-          </v-card-text>
-          <v-card-actions class="py-3">
-            <v-btn
-              @click.native="handleSubmit"
-              :class="{ 'd-none hide-btn': !validLoginForm}"
-              transition="slide-y-transition"
-              class="elevation-10"
-              color="pink"
-              dark
-              absolute
-              bottom
-              right
-              fab >
-              <v-icon>arrow_forward</v-icon>
-            </v-btn>
-          </v-card-actions>
+            </v-card-text>
+            <v-card-actions class="py-3">
+              <v-btn
+                type="submit"
+                @click.native="handleSubmit"
+                :class="{ 'd-none hide-btn': !validLoginForm}"
+                transition="slide-y-transition"
+                class="elevation-10"
+                color="pink"
+                dark
+                absolute
+                bottom
+                right
+                fab >
+                <v-icon>arrow_forward</v-icon>
+              </v-btn>
+            </v-card-actions>
+          </v-form>
         </v-card>
       </v-flex>
     </v-layout>
@@ -123,7 +126,7 @@
           password: this.password
         }
         this.SignUp(payload)
-          .then(data => console.log(data))
+          .then(data => this.$router.push({ name: 'Home' }))
       }
     }
   }

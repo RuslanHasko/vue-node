@@ -1,7 +1,7 @@
 import Home from 'components/Home/Home'
 
 export default {
-  path: '/Home',
+  path: '/home',
   name: 'Home',
   component: Home
 }
