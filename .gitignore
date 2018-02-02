@@ -1,1 +1,4 @@
 /node_modules/
+deploy
+StopServers
+nohup.out
